@@ -20,6 +20,7 @@ serviceAccount:
 service:
   type: ClusterIP
   # externalTrafficPolicy: Cluster
+  port: 1883
   annotations: {}
     # metallb.universe.tf/allow-shared-ip: pi-hole
 
