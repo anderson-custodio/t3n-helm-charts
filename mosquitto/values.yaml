@@ -31,6 +31,7 @@ ingress:
     - host: ""
       paths:
         - path: /mosquitto
+          pathType: ImplementationSpecific
   tls: []
 
 ports:
