@@ -18,14 +18,14 @@ serviceAccount:
   name:
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   # externalTrafficPolicy: Cluster
   port: 1883
   annotations: {}
     # metallb.universe.tf/allow-shared-ip: pi-hole
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   hosts:
     - host: ""
