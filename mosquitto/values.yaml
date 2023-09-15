@@ -23,11 +23,24 @@ service:
   annotations: {}
     # metallb.universe.tf/allow-shared-ip: pi-hole
 
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: ""
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
 ports:
   mqtt:
     port: 1883
     # sets consistent nodePort, required to set service.type=NodePort
-    nodePort: 31883
+    # nodePort: 31883
     protocol: TCP
   websocket:
     port: 9090
