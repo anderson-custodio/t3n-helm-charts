@@ -30,7 +30,7 @@ ingress:
   hosts:
     - host: ""
       paths:
-        - path: /mosquitto
+        - path: /
           pathType: ImplementationSpecific
   tls: []
 
