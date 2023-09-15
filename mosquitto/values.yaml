@@ -28,11 +28,12 @@ ingress:
   className: ""
   annotations:
     kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   hosts:
     - host: ""
       paths:
-        - path: /
+        - path: /mosquitto(/|$)(.*)
           pathType: ImplementationSpecific
   tls: []
 
