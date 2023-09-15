@@ -24,16 +24,6 @@ service:
   annotations: {}
     # metallb.universe.tf/allow-shared-ip: pi-hole
 
-ingress:
-  enabled: false
-  className: "nginx"
-  hosts:
-    - host: ""
-      paths:
-        - path: /
-          pathType: ImplementationSpecific
-  tls: []
-
 ports:
   mqtt:
     port: 1883
