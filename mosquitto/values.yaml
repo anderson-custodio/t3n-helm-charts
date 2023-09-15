@@ -27,14 +27,10 @@ service:
 ingress:
   enabled: true
   className: "nginx"
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
   hosts:
     - host: ""
       paths:
-        - path: /mosquitto(/|$)(.*)
-          pathType: ImplementationSpecific
+        - path: /mosquitto
   tls: []
 
 ports:
