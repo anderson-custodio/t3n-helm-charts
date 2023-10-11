@@ -50,6 +50,20 @@ persistence:
   # storageClass: "-"
   size: 1Gi
 
+ingress:
+  enabled: true
+  className: ""
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /mosca/$2
+  hosts:
+    - host: ""
+      paths:
+        - path: /mosca(/|$)(.*)
+          pathType: Prefix
+  tls: []
+
 resources:
   limits:
     cpu: 500m
