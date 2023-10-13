@@ -18,7 +18,7 @@ serviceAccount:
   name:
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   # externalTrafficPolicy: Cluster
   port: 1883
   annotations: {}
@@ -33,19 +33,6 @@ ports:
   websocket:
     port: 9090
     protocol: TCP
-
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /
-  hosts:
-    - host: ""
-      paths:
-        - path: /mosca
-          pathType: Exact
-  tls: []
 
 persistence:
   enabled: true
@@ -86,11 +73,13 @@ tolerations: []
 affinity: {}
 
 authentication:
+  passwordEntries: ""
   # To use authentication with mosquitto, you can set a list of password entries to be used.
   # reference https://mosquitto.org/man/mosquitto_passwd-1.html to generate these entries.
   # For example:
-  passwordEntries: |-
-    foo:bar
+  # passwordEntries: |-
+  #   user1:$6$BKzw0RKerxV4Esbj$Uz5slWGB1TiOtYIEokEl0eR1YSEQAdKpcdRYMsLYbwjktlVzdLyGk41YCPGyMLnBePtdwPhkcm8kjGI0R9s57w==
+  #   user2:$6$b5vYuHrSLj48Ii32$NjlbnatIaUQSsNvxxTpawpav6NPyZ8QhGrdEVGtyU1rgEGjNzVGKlstRg29FV6MFTPs/ugPA8D5I5+qRcIMXSg==
   passwordFilePath: "/etc/mosquitto/passwordfile"
 
 authorization:
