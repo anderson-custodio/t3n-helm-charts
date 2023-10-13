@@ -34,6 +34,9 @@ ports:
     port: 9090
     protocol: TCP
 
+ingress:
+  enabled: true
+
 persistence:
   enabled: true
   accessMode: ReadWriteOnce
